@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Result System</title>
+</head>
+<body>
+  <h2>Enter Marks of 5 Subjects</h2>
+  <input type="number" id="s1" placeholder="Subject 1"><br>
+  <input type="number" id="s2" placeholder="Subject 2"><br>
+  <input type="number" id="s3" placeholder="Subject 3"><br>
+  <input type="number" id="s4" placeholder="Subject 4"><br>
+  <input type="number" id="s5" placeholder="Subject 5"><br>
+  <button onclick="calculate()">Calculate Result</button>
+
+  <p id="output"></p>
+
+  <script>
+    function calculate() {
+      let s1 = parseInt(document.getElementById("s1").value);
+      let s2 = parseInt(document.getElementById("s2").value);
+      let s3 = parseInt(document.getElementById("s3").value);
+      let s4 = parseInt(document.getElementById("s4").value);
+      let s5 = parseInt(document.getElementById("s5").value);
+
+      let total = s1 + s2 + s3 + s4 + s5;
+      let percentage = (total / 500) * 100; // assuming each subject max = 100
+
+      let result;
+      if (percentage >= 75) {
+        result = "Distinction";
+      } else if (percentage >= 60) {
+        result = "First Class";
+      } else if (percentage >= 50) {
+        result = "Second Class";
+      } else {
+        result = "Fail";
+      }
+
+      document.getElementById("output").innerHTML =
+        "Total Marks: " + total + "<br>" +
+        "Percentage: " + percentage.toFixed(2) + "%<br>" +
+        "Result: " + result;
+    }
+  </script>
+</body>
+</html>
